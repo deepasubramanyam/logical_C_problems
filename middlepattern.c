@@ -1,3 +1,13 @@
+input:PROGRAM
+output:
+
+            G
+          GR
+        GRA
+      GRAM
+    GRAMP
+  GRAMPR
+GRAMPRO
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
