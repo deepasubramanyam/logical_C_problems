@@ -1,0 +1,29 @@
+input:5
+output:
+1 
+1 1 
+1 1 2 
+1 1 2 3 
+1 1 2 3 5 
+
+#include <stdio.h>
+int main() {
+   int i,j,n1,n2,n,sum;
+   scanf("%d",&n);
+   for(i=1;i<=n;i++)
+   {
+       sum=0,n1=1,n2=1;
+       for(j=1;j<=n;j++)
+       {
+           if(i>=j)
+           {
+               printf("%d ",n1);
+               sum=n1+n2;
+               n1=n2;
+               n2=sum;
+           }
+       }
+       printf("\n");
+   }
+   return 0;
+}
