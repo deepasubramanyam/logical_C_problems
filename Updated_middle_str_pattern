@@ -1,0 +1,43 @@
+input:PROGRAM
+output:
+              G
+            GR
+          GRA
+       GRAM
+     GRAMP
+   GRAMPR
+GRAMPRO
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+void main()
+{
+    int i,j,k,mid,temp,count;
+    char str[100];
+    scanf("%s", str);
+    mid=strlen(str)/2;
+    for(i=1;i<=strlen(str);i++)
+    {
+        if(i==strlen(str))
+            temp=(i*2)+1;
+        else if(i>mid)
+            temp=(i*2);
+        else
+            temp=(i*2)-1;
+        count=0;
+        for(j=2*strlen(str)+1;j>=i;j--)
+        {
+            if(abs(temp)==j)
+            {
+                for(k=temp;count<i;k++){
+                        printf("%c",str[(mid+count)%strlen(str)]);
+                        count++;
+                }
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
