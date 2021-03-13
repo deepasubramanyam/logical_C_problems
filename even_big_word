@@ -1,3 +1,6 @@
+input:this is called bananana from today
+output:bananana
+
 #include<stdio.h>
 #include<stdlib.h>
 void main()
