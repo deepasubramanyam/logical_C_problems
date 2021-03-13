@@ -1,12 +1,11 @@
 #include<stdio.h>
 void main()
 {
-    int T,i,j,a;
-    long int sum=0,k,n;
-    scanf("%d",&T);
+    long long int sum=0,k,n,T,i,j,a;
+    scanf("%lld",&T);
     for(a=0;a<T;a++){
         sum=0;
-        scanf("%ld%ld",&n,&k);
+        scanf("%lld%lld",&n,&k);
         for(i=1;i<=n;i++)
         {
             for(j=i;j>=1;j--){
@@ -17,6 +16,6 @@ void main()
                 }
             }
         }
-        printf("%ld",sum);
+        printf("%lld",sum);
    }
 }
