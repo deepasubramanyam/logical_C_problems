@@ -1,82 +1,44 @@
 //Format a string of numbers to display a currency - example "1234.678" to "1,234.68".
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 int main()
 {
   int i,count=0,temp=0,l=0;
   char arr[100];
   scanf("%s",arr);
-  for(i=0;arr[i]!='.';i++)
-     count++;
-  l=strlen(arr);
-  if(arr[l-1]>='5'){
-    arr[l-2]++;}
-    l=l-1;
-  if(count<=3)
+  for(i=0;arr[i]!='.';i++){
+     count++;}
+
+  if(count<=3){
     printf("%s",arr);
+    exit(1);
+  }
   else{
       i=0;
+      if(count%2==0)
+      {
+          printf("%c,",arr[i]);
+          for(i=1;i<count-3;i+=2){
+                printf("%c%c,",arr[i],arr[i+1]);
+           }
+      }
       if(count%2!=0)
       {
-        if(count>=9)
-        {
-            for(i=0;i<count;i+=3){
-                if(i==count-3)
-                    printf("%c%c%c",arr[i],arr[i+1],arr[i+2]);
-                else
-                    printf("%c%c%c,",arr[i],arr[i+1],arr[i+2]);
-            }
-        }
-        else{
-        printf("%c%c,",arr[i],arr[i+1]);
-        temp=count-2;
-        i=2;
-        while(temp>3 && count!=5){
-            printf("%c%c,",arr[i],arr[i+1]);
-            temp=temp-2;
-        }
-        if(count==5)
-          temp=1;
-        for(i=temp+1;i<count;i++){
-                printf("%c",arr[i]);}
-        }
-        for(i=count;i<l;i++)
-            printf("%c",arr[i]);
-        }
-      }
-     if(count%2==0)
-      {
-          if(count>=8)
-          {
-              printf("%c,",arr[i]);
-             for(i=1;i<count;i+=3){
-                if(i==count-3)
-                    printf("%c%c%c",arr[i],arr[i+1],arr[i+2]);
-                else
-                    printf("%c%c%c,",arr[i],arr[i+1],arr[i+2]);
-            }
-          }
-          else{
-          printf("%c,",arr[i]);
-          temp=count-1;
-          i=1;
-          while(temp>3 && count!=4){
+          printf("%c%c,",arr[i],arr[i+1]);
+          for(i=2;i<count-3;i+=2){
                 printf("%c%c,",arr[i],arr[i+1]);
-                temp=temp-2;
-                i=i+2;
-          }
-          if(count==4){
-            temp=1;}
-          for(i=temp;i<count;i++){
-                printf("%c",arr[i]);}
             }
-          for(i=count;i<l;i++)
-            printf("%c",arr[i]);
-       }
       }
+    }
+    if(count==4){
+        count=1;}
+    else{
+        count-=3;
+    }
+    for(i=count;i<strlen(arr)-1;i++)
+    {
+        printf("%c",arr[i]);
+    }
 
-
-
-
-
-
+}
