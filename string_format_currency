@@ -4,12 +4,16 @@
 #include<stdlib.h>
 int main()
 {
-  int i,count=0,temp=0,l=0;
+  int i,count=0,temp=0,l=0,len=0;
   char arr[100];
   scanf("%s",arr);
   for(i=0;arr[i]!='.';i++){
      count++;}
-
+  len=strlen(arr)-1;
+  if(arr[len]-'0'>=5){
+        l=arr[len-1]-'0';
+        len=len-1;
+  }
   if(count<=3){
     printf("%s",arr);
     exit(1);
@@ -36,9 +40,11 @@ int main()
     else{
         count-=3;
     }
-    for(i=count;i<strlen(arr)-1;i++)
+    for(i=count;i<len;i++)
     {
         printf("%c",arr[i]);
     }
+    if(arr[len]-'0'>=5)
+        printf("%d",l+1);
 
 }
