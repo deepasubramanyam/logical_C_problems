@@ -1,0 +1,40 @@
+There are two kind of bots in the game BOT A and BOT B.Empty space represented by "#".Bot A can move towards left whereas bot B is constrained to move rightwards. 
+Both cannot cross over each other.Transformation is possible or not.
+input:#B#A# ##BA# #B#A# #A#B#
+output:YES NO
+#include<stdio.h>
+void main()
+{
+    char arr[100],i,j,swap=0;
+    gets(arr);
+    for(i=0,j=strlen(arr)-1;i<j;)
+    {
+        if(arr[i]==arr[j])
+        {
+            i++;
+            j--;
+        }
+        else if(arr[i]=='B' && arr[j]=='#')
+        {
+            swap++;
+            break;
+        }
+        else if(arr[i]=='#' && arr[j]=='A'){
+            swap++;
+            break;
+        }
+        else if(arr[i]=='B' && arr[j]=='A')
+        {
+            i++;
+        }
+        else if(arr[i]=='A' && arr[j]=='B')
+        {
+            j--;
+        }
+        else{
+            i++;
+            j--;
+        }
+    }
+    swap>0?printf("YES"):printf("NO");
+}
