@@ -1,0 +1,42 @@
+input:7
+output:
+      1
+     121
+    12321
+   1234321
+  123454321
+ 12345654321
+1234567654321
+
+#include<stdio.h>
+void main()
+{
+    int  n,i,j,c=1,k,k1,temp=0;
+    scanf("%d",&n);
+    temp=n;
+    for(i=n;i>=1;i--)
+    {
+        for(j=1;j<=temp;j++)
+        {
+            if(i==j)
+            {
+               k1=c-1;
+               for(k=1;k<=(c*2)-1;k++)
+               {
+                   if(j>n){
+                        printf("%d",k1--);}
+                   else{
+                         printf("%d",k);}
+                   j++;
+               }
+            }
+            else
+            {
+                printf(" ");
+            }
+        }
+        c++;
+        temp--;
+    printf("\n");
+    }
+}
