@@ -1,0 +1,92 @@
+input:May 12,2000
+output:12/5/2000
+input:12/4/2000
+output:4/12/2000
+#include<stdio.h>
+void main()
+{
+    char arr[100],b[100],arr1[13]={'u','F','r','p','y','e','l','g','S','O','N','D','\0'};
+    int i,c=0,temp=0,count=0;
+    gets(arr);
+    if(!(arr[0]>='1'&&arr[0]<='9')){
+      for(i=0;arr[i]!='\0';i++)
+        {
+            if(arr[i]>='0' && arr[i]<='9'){
+                printf("%c",arr[i]);
+                if(arr[i+1]==',')
+                {
+                    printf("/");
+                    break;}
+                }
+        }
+
+        if(arr[0]=='J'||arr[0]=='M'||arr[0]=='A')
+        {
+            if(arr[2]=='n'){
+                c=3;}
+            else if(arr[0]=='A')
+            {
+                if(arr[1]=='p')
+                    c=1;
+            }
+            else{
+                c=2;}
+         }
+        for(i=0;i<12;i++)
+        {
+            if(arr[c]==arr1[i]){
+               printf("%d/",i+1);
+               break;}
+        }
+        for(i=4;i>0;i--)
+        {
+           printf("%c",arr[strlen(arr)-i]);
+            count++;
+        }
+  }
+
+
+   else{
+        temp=arr[0];
+        if(arr[1]=='/')
+        {
+            if(arr[3]=='/')
+            {
+                arr[0]=arr[2];
+                arr[2]=temp;
+            }
+            else
+            {
+                for(i=0;i<2;i++)
+                {
+                    arr[i]=arr[i+2];
+                }
+            arr[i]='/';
+            arr[i+1]=temp;
+            }
+        }
+        else if(arr[2]=='/')
+        {
+            if(arr[5]=='/')
+            {
+                for(i=0;i<2;i++)
+                {
+                    temp=arr[i];
+                    arr[i]=arr[i+3];
+                    arr[i+3]=temp;
+                }
+            }
+            else{
+                temp=arr[3];
+                for(i=0;i<2;i++)
+                {
+                    arr[i+2]=arr[i];
+                }
+                arr[0]=temp;
+                arr[1]='/';
+        }
+     puts(arr);
+    }
+}
+}
+
