@@ -1,0 +1,39 @@
+input:6
+output:
+     *
+    * *
+   *   *
+  *     *
+ *       *
+***********
+#include<stdio.h>
+void main()
+{
+    int i,j,n,c=0,k;
+    scanf("%d",&n);
+    for(i=n;i>=1;i--)
+    {
+        if(i==1)
+        {
+            for(k=1;k<=(2*n)-1;k++)
+            {
+                printf("*");
+            }
+        }
+        else{
+            for(j=1;j<=n+c;j++)
+            {
+                if(i==j||j==n+c)
+                {
+                    printf("*");
+                }
+                else
+                {
+                    printf(" ");
+                }
+            }
+            c++;
+        }
+        printf("\n");
+    }
+}
