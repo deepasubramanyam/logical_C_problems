@@ -1,0 +1,35 @@
+input:3 3
+output:
+XXX
+X0X
+XXX
+
+input:6 7
+XXXXXX
+X0XX0X
+X0XX0X
+X0XX0X
+X0XX0X
+X0XX0X
+XXXXXX
+#include <stdio.h>
+void  main() {
+    int i,j,n,m;
+    scanf("%d%d",&n,&m);
+    for(i=1;i<=m;i++)
+    {
+        printf("X");
+        for(j=2;j<=n;j++)
+        {
+            if((i!=1&&i!=m)&&(j==2||j==n-1))
+            {
+                printf("0");
+            }
+            else 
+            {
+                printf("X");
+            }
+        }
+        printf("\n");
+    }
+}
