@@ -11,22 +11,26 @@ int main() {
         scanf("%d",&arr1[i]);
    for(i=n1-1,j=n2-1;i>=0&&j>=0;i--,j--)
    {
-      sum=arr[i]+arr1[j];
-      sum1+=sum;
-      arr2[k++]=sum1%10;
-      sum1=sum1/10;
-      sum=0;
-    }
+      sum+=arr[i]+arr1[j];
+      arr2[k++]=sum%10;
+      sum=sum/10;
+   }
     while(i>=0)
     {
-        arr2[k++]=arr[i];
+        sum+=arr[i];
+        arr2[k++]=(sum%10);
+        sum=sum/10;
         i--;
     }
     while(j>=0)
     {
-        arr2[k++]=arr[j];
+        sum+=arr[j];
+        arr2[k++]=(sum%10);
+        sum=sum/10;
         j--;
     }
+    if(sum!=0)
+        printf("%d",sum);
     for(i=k-1;i>=0;i--)
     {
         printf("%d",arr2[i]);
