@@ -1,0 +1,35 @@
+input:12 9
+9 2 8 1 3 5 6 7 3 1 1 6    7 8 4 6 2 1 9 9 7
+output:9 2 8 9 2 0 2 9 1 1 3
+#include <stdio.h>
+int main() {
+   int arr[100],arr1[100],arr2[100],i,j,n1,n2,sum=0,sum1=0,k=0;
+   scanf("%d%d",&n1,&n2);
+   for(i=0;i<n1;i++)
+        scanf("%d",&arr[i]);
+   for(i=0;i<n2;i++)
+        scanf("%d",&arr1[i]);
+   for(i=n1-1,j=n2-1;i>=0&&j>=0;i--,j--)
+   {
+      sum=arr[i]+arr1[j];
+      sum1+=sum;
+      arr2[k++]=sum1%10;
+      sum1=sum1/10;
+      sum=0;
+    }
+    while(i>=0)
+    {
+        arr2[k++]=arr[i];
+        i--;
+    }
+    while(j>=0)
+    {
+        arr2[k++]=arr[j];
+        j--;
+    }
+    for(i=k-1;i>=0;i--)
+    {
+        printf("%d",arr2[i]);
+    }
+    return 0;
+}
