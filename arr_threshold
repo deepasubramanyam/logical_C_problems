@@ -1,0 +1,32 @@
+input:{17,18,5],threshold=4
+output:12
+#include<stdio.h>
+void main()
+{
+    int arr[100],i,j,count=0,n,t,k;
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    scanf("%d",&t);
+    for(i=0;i<n;i++)
+    {
+        if(arr[i]%t==0)
+        {
+            count+=arr[i]/t;
+        }
+        else{
+            k=arr[i]%t;
+            count++;
+            for(j=1;j<=arr[i]-k;j++)
+            {
+                if(j%t==0)
+                {
+                    count++;
+                }
+            }
+       }
+    }
+    printf("The count is:%d",count);
+}
