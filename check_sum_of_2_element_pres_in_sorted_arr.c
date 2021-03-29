@@ -1,3 +1,5 @@
+input:12345,9
+output:true
 #include<stdio.h>
 void main()
 {
