@@ -54,7 +54,7 @@ void main()
         sub=str[0]-str[1];
         temp=c;
         arr[index-1]=c;
-        arr[index++]=str[2];}
+        arr[index++]=str[2];
         if (sub==str[2]){
             arr[index-1]=sub;
             arr[index++]=str[2];}
@@ -84,6 +84,7 @@ void main()
                 }
             }
          }
+       }
     if(count==2)
     {
         printf("not monodigit number");
