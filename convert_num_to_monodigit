@@ -84,7 +84,6 @@ void main()
                 }
             }
          }
-    }
     if(count==2)
     {
         printf("not monodigit number");
