@@ -1,0 +1,119 @@
+Write a program to convert a number into a mono-digit number.
+Conditions:
+a) You are allowed to add and subtract the consecutive digits (starting from left).
+b) You are allowed to do only one operation on a digit.
+c) You cannot perform any operation on a resultant digit of the previous operation.
+d) Your code should also find if a given number cannot be converted to a mono digit number.
+input:725818181
+output:77777
+input:725818
+output:not monodigit
+#include<stdio.h>
+void main()
+{
+    char str[100];
+    int i,j,c,k1=0,t=1,arr[100],temp,count=0;
+    gets(str);
+    for(i=0;i<strlen(str);i++)
+    {
+        str[i]=str[i]-'0';
+    }
+    c=str[0];
+    arr[t-1]=c;
+    arr[t++]=c;
+    for(i=1;i<strlen(str);i+=2)
+    {
+        if(c!=str[i]+str[i+1]&&c!=str[i]-str[i+1])
+        {
+            count++;
+            t=1;
+            break;
+        }
+        else if (c==str[i]+str[i+1]||c==str[i]-str[i-1]){
+                    for(j=i+2;j<strlen(str);j+=2)
+                    {
+                        if(c==str[j]+str[j+1]||c==str[j]-str[j+1])
+                        {
+                            arr[t++]=c;
+                        }
+                    }
+                    if(j/2==4)
+                    {
+                        break;
+                    }
+        }
+    }
+    if(c==str[strlen(str)-1]&&strlen(str)%2==0)
+    {
+        arr[t++]=c;
+    }
+    if(count!=0){
+        c=str[0]+str[1];
+        k1=str[0]-str[1];
+        temp=k1;
+        if(c==str[2]){
+            arr[t-1]=c;
+            temp=c;
+            arr[t++]=str[2];}
+        else if (k1==str[2]){
+            arr[t-1]=k1;
+            arr[t++]=str[2];}
+        for(i=3;i<strlen(str);i+=3)
+        {
+            if(temp!=str[i-1])
+            {
+                count++;
+                break;
+            }
+            else
+            {
+                for(j=i;j<strlen(str)-1;j+=2)
+                {
+                    if(temp==str[j]+str[j+1]||temp==str[j]-str[j+1])
+                    {
+                        arr[t++]=temp;
+                    }
+                    if(temp==str[j+2])
+                    {
+                        arr[t++]=temp;
+                    }
+                    else
+                    {
+                        count++;
+                    }
+                }
+            }
+         }
+    }
+    if(count==2)
+    {
+        printf("not monodigit number");
+    }
+    else{
+            for(i=0;i<t;i++)
+            {
+                printf("%d",arr[i]);
+            }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
