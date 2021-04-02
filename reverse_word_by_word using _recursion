@@ -23,14 +23,12 @@ int rev_str_word(char str1[],int temp,int i,int index){
                 count=i;}
            for(j=count;j<=temp;j++)
            {
-               str2[index]=str1[j];
+               str2[index++]=str1[j];
                printf("%c",str2[index]);
-               index++;
            }
            if(i>0){
-                str2[index]=str1[count-1];
-                printf("%c",str2[index]);
-                index++;}
+                str2[index++]=str1[count-1];
+                printf("%c",str2[index]);}
             temp=i-1;
        }
        rev_str_word(str1,temp,--i,++index);
