@@ -1,0 +1,37 @@
+// reverse a string word by word using recursion
+#include <stdio.h>
+#include<stdlib.h>
+int rev_str_word(char str1[],int temp,int i,int index);
+int main() {
+   int i,j,temp,index=0;
+   char str1[100],str2[100];
+   gets(str1);
+   temp=strlen(str1)-1;
+   rev_str_word(str1,strlen(str1)-1,strlen(str1)-1,0);
+   return 0;
+}
+int rev_str_word(char str1[],int temp,int i,int index){
+    int j,count=0;
+    char str2[100];
+    if(i==-1){
+        return;
+    }
+    else if(!(str1[i]>='a' && str1[i]<='z')||i==0)
+       {
+           count=i+1;
+           if(i==0){
+                count=i;}
+           for(j=count;j<=temp;j++)
+           {
+               str2[index]=str1[j];
+               printf("%c",str2[index]);
+               index++;
+           }
+           if(i>0){
+                str2[index]=str1[count-1];
+                printf("%c",str2[index]);
+                index++;}
+            temp=i-1;
+       }
+       rev_str_word(str1,temp,--i,++index);
+}
